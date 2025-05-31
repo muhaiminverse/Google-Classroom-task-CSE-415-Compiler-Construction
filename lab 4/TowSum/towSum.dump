@@ -1,0 +1,74 @@
+
+towSum.o:     file format pe-i386
+
+
+Disassembly of section .text:
+
+00000000 <_twoSum>:
+   0:	55                   	push   ebp
+   1:	89 e5                	mov    ebp,esp
+   3:	83 ec 10             	sub    esp,0x10
+   6:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [ebp-0x4],0x0
+   d:	eb 4b                	jmp    5a <_twoSum+0x5a>
+   f:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  12:	83 c0 01             	add    eax,0x1
+  15:	89 45 f8             	mov    DWORD PTR [ebp-0x8],eax
+  18:	eb 34                	jmp    4e <_twoSum+0x4e>
+  1a:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  1d:	8d 14 85 00 00 00 00 	lea    edx,[eax*4+0x0]
+  24:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  27:	01 d0                	add    eax,edx
+  29:	8b 10                	mov    edx,DWORD PTR [eax]
+  2b:	8b 45 f8             	mov    eax,DWORD PTR [ebp-0x8]
+  2e:	8d 0c 85 00 00 00 00 	lea    ecx,[eax*4+0x0]
+  35:	8b 45 08             	mov    eax,DWORD PTR [ebp+0x8]
+  38:	01 c8                	add    eax,ecx
+  3a:	8b 00                	mov    eax,DWORD PTR [eax]
+  3c:	01 d0                	add    eax,edx
+  3e:	3b 45 10             	cmp    eax,DWORD PTR [ebp+0x10]
+  41:	75 07                	jne    4a <_twoSum+0x4a>
+  43:	b8 01 00 00 00       	mov    eax,0x1
+  48:	eb 1d                	jmp    67 <_twoSum+0x67>
+  4a:	83 45 f8 01          	add    DWORD PTR [ebp-0x8],0x1
+  4e:	8b 45 f8             	mov    eax,DWORD PTR [ebp-0x8]
+  51:	3b 45 0c             	cmp    eax,DWORD PTR [ebp+0xc]
+  54:	7c c4                	jl     1a <_twoSum+0x1a>
+  56:	83 45 fc 01          	add    DWORD PTR [ebp-0x4],0x1
+  5a:	8b 45 fc             	mov    eax,DWORD PTR [ebp-0x4]
+  5d:	3b 45 0c             	cmp    eax,DWORD PTR [ebp+0xc]
+  60:	7c ad                	jl     f <_twoSum+0xf>
+  62:	b8 00 00 00 00       	mov    eax,0x0
+  67:	c9                   	leave  
+  68:	c3                   	ret    
+
+00000069 <_main>:
+  69:	55                   	push   ebp
+  6a:	89 e5                	mov    ebp,esp
+  6c:	83 e4 f0             	and    esp,0xfffffff0
+  6f:	83 ec 20             	sub    esp,0x20
+  72:	e8 00 00 00 00       	call   77 <_main+0xe>
+  77:	c7 44 24 10 01 00 00 	mov    DWORD PTR [esp+0x10],0x1
+  7e:	00 
+  7f:	c7 44 24 14 02 00 00 	mov    DWORD PTR [esp+0x14],0x2
+  86:	00 
+  87:	c7 44 24 1c e8 03 00 	mov    DWORD PTR [esp+0x1c],0x3e8
+  8e:	00 
+  8f:	c7 44 24 18 02 00 00 	mov    DWORD PTR [esp+0x18],0x2
+  96:	00 
+  97:	8b 44 24 1c          	mov    eax,DWORD PTR [esp+0x1c]
+  9b:	89 44 24 08          	mov    DWORD PTR [esp+0x8],eax
+  9f:	8b 44 24 18          	mov    eax,DWORD PTR [esp+0x18]
+  a3:	89 44 24 04          	mov    DWORD PTR [esp+0x4],eax
+  a7:	8d 44 24 10          	lea    eax,[esp+0x10]
+  ab:	89 04 24             	mov    DWORD PTR [esp],eax
+  ae:	e8 4d ff ff ff       	call   0 <_twoSum>
+  b3:	85 c0                	test   eax,eax
+  b5:	74 0e                	je     c5 <_main+0x5c>
+  b7:	c7 04 24 00 00 00 00 	mov    DWORD PTR [esp],0x0
+  be:	e8 00 00 00 00       	call   c3 <_main+0x5a>
+  c3:	eb 0c                	jmp    d1 <_main+0x68>
+  c5:	c7 04 24 24 00 00 00 	mov    DWORD PTR [esp],0x24
+  cc:	e8 00 00 00 00       	call   d1 <_main+0x68>
+  d1:	b8 00 00 00 00       	mov    eax,0x0
+  d6:	c9                   	leave  
+  d7:	c3                   	ret    
